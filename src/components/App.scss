@@ -1,0 +1,90 @@
+body {
+  background-color: #282c34;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0px;
+}
+.progressBar-section {
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .progress-bar {
+      width: 90%;
+      height: 125px;
+      border: 1px solid white;
+      position: relative;
+      .progress {
+        position: absolute;
+        height: 125px;
+        width: 10%;
+        background-color: green;
+      }
+    }
+  }
+}
+.taskList-section {
+  margin-top: 10px;
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .tasks-render {
+      width: 85%;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: auto;
+      margin-top: 25px;
+      .task-block {
+        width: 90%;
+        height: 80px;
+        padding: 0px 10px;
+        border: 1px solid aquamarine;
+        border-radius: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.1em;
+        margin: 10px 0px;
+        .text-block {
+          width: 85%;
+          height: 100%;
+        }
+        .info-block {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 10%;
+          height: 100%;
+          line-height: 1px;
+        }
+      }
+    }
+    .tasks-filter {
+      width: 12%;
+      height: 100px;
+
+      button {
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 60px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        font-size: 1.3em;
+        cursor: pointer;
+        font-weight: 900;
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+    }
+  }
+}
