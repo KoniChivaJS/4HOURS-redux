@@ -8,20 +8,20 @@ function ProgressBar() {
   const [day, month] = [date.getDate(), date.getMonth()];
 
   const [minutes, setMinutes] = useState(0);
-  const percentage = (minutes * 100) / 240;
-
   useEffect(() => {
-    tasks.map((el) => {
-      if (el.date[0] == day && el.date[1] == month) {
-        setMinutes((minutes) => minutes + el.minutes);
+    setMinutes(0);
+    tasks.forEach((obj) => {
+      if (obj.date[0] == day && obj.date[1] == month) {
+        setMinutes((minutes) => minutes + obj.minutes);
       }
     });
   }, [tasks]);
+  const percentage = (minutes * 100) / 240;
 
   return (
     <div className="progressBar-section">
       <div className="container">
-        <h2>Today`s progress - {percentage}%</h2>
+        <h2>Today`s progress - {percentage.toFixed(2)}%</h2>
         <div className="progress-bar">
           <div
             style={
