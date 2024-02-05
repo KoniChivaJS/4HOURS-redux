@@ -5,7 +5,14 @@ import ProgressBar from "./ProgressBar";
 import TaskList from "./TasksList";
 import SwitchPage from "./SwitchPage";
 import AddTask from "./AddTask";
+import { useEffect } from "react";
+import { fetchTasksAction } from "../asyncAction/tasks";
+import { useDispatch } from "react-redux";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchTasksAction());
+  }, []);
   return (
     <div className="App">
       <Header />

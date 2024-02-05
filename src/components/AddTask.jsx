@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { addTaskAction } from "../store/reducers/tasksReducer";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 function AddTask() {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
@@ -16,6 +17,7 @@ function AddTask() {
       minutes: +minutes,
       task: task,
     };
+    axios.post("https://656fa4806529ec1c62381c41.mockapi.io/tasks", obj);
     dispatch(addTaskAction(obj));
     setTask("");
     setMinutes("");
