@@ -1,7 +1,14 @@
 import { useDispatch } from "react-redux";
 import { deleteTaskAction } from "../store/reducers/tasksReducer";
+import axios from "axios";
 function TaskItem({ data }) {
   const dispatch = useDispatch();
+  const deleteTask = (task) => {
+    dispatch(deleteTaskAction(task));
+    axios.delete(
+      `https://656fa4806529ec1c62381c41.mockapi.io/tasks/${task.mockID}`
+    );
+  };
   return (
     <div className="task-block">
       <div className="text-block">
@@ -21,7 +28,7 @@ function TaskItem({ data }) {
         width={40}
         height={40}
         style={{ cursor: "pointer" }}
-        onClick={() => dispatch(deleteTaskAction(data))}
+        onClick={() => deleteTask(data)}
       />
     </div>
   );
